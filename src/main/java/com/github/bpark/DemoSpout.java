@@ -23,7 +23,6 @@ public class DemoSpout extends BaseRichSpout {
     @Override
     public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
         logger.info("initializing");
-        System.out.println("initializing");
         this.collector = collector;
         this.random = new Random();
     }

@@ -14,9 +14,9 @@ public class LocalDeployer {
         conf.setNumWorkers(1);
 
         LocalCluster cluster = new LocalCluster();
-        cluster.submitTopology("test", conf, DemoTopology.createTopology());
+        cluster.submitTopology("twitter", conf, TwitterTopology.createTopology());
         Utils.sleep(10000);
-        cluster.killTopology("test");
+        cluster.killTopology("twitter");
         cluster.shutdown();
     }
 }

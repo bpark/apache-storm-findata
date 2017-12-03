@@ -1,5 +1,7 @@
 package com.github.bpark;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.bpark.model.Tweet;
 import com.google.common.collect.Lists;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;
@@ -20,12 +22,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class TwitterDemo {
 
-    private static final String CONSUMER_KEY = "";
-    private static final String CONSUMER_SECRET = "";
-    private static final String TOKEN = "";
-    private static final String TOKEN_SECRET = "";
+    private static final String CONSUMER_KEY = "BeeCg0eE2kDLLU967NO42p9PK";
+    private static final String CONSUMER_SECRET = "inZKWBymQvZhKBQhf9yhffNvdCOAb1DQkSv7tBlRbujT4SVwXi";
+    private static final String TOKEN = "712118503-15Iq3kcTjcM9S5KzBwzDQrbpAm5GzbcOOkZdeBTt";
+    private static final String TOKEN_SECRET = "KsYTNe0tOGytgvX316pJ6NzDc02R4b0HKsm90J9d8VRKm";
 
     public static void main(String[] args) {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
         /* Set up your blocking queues: Be sure to size these properly based on expected TPS of your stream */
         BlockingQueue<String> msgQueue = new LinkedBlockingQueue<String>(100000);
         BlockingQueue<Event> eventQueue = new LinkedBlockingQueue<Event>(1000);
@@ -63,6 +68,7 @@ public class TwitterDemo {
                 while (!hosebirdClient.isDone() || running.get()) {
                     String msg = msgQueue.take();
                     System.out.println(msg);
+                    Tweet tweet = objectMapper.readValue(msg, Tweet.class);
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);

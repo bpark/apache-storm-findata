@@ -22,6 +22,6 @@ public class RemoteDeployer {
         String inputJar = "apache-storm-findata-topology/target/apache-storm-findata-topology-1.0-SNAPSHOT.jar";
         System.setProperty("storm.jar", inputJar);
 
-        StormSubmitter.submitTopologyWithProgressBar("numbertop", conf, DemoTopology.createTopology());
+        StormSubmitter.submitTopologyWithProgressBar("twittertopology", conf, TwitterTopology.createTopology());
     }
 }

@@ -22,10 +22,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class TwitterDemo {
 
-    private static final String CONSUMER_KEY = "BeeCg0eE2kDLLU967NO42p9PK";
-    private static final String CONSUMER_SECRET = "inZKWBymQvZhKBQhf9yhffNvdCOAb1DQkSv7tBlRbujT4SVwXi";
-    private static final String TOKEN = "712118503-15Iq3kcTjcM9S5KzBwzDQrbpAm5GzbcOOkZdeBTt";
-    private static final String TOKEN_SECRET = "KsYTNe0tOGytgvX316pJ6NzDc02R4b0HKsm90J9d8VRKm";
+    private static final String CONSUMER_KEY = "";
+    private static final String CONSUMER_SECRET = "";
+    private static final String TOKEN = "";
+    private static final String TOKEN_SECRET = "";
 
     public static void main(String[] args) {
 
